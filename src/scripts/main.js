@@ -8,12 +8,12 @@ listImg.addEventListener('click', (e) => {
 
   const target = e.target;
 
-  if (!target) {
-    return;
-  }
-
   if (target.tagName === 'IMG') {
-    mainImg.src = target.parentElement.href;
+    const parentElement = target.parentElement;
+
+    if (parentElement && parentElement.tagName === 'A') {
+      mainImg.src = parentElement.href;
+    }
   } else if (target.tagName === 'A') {
     mainImg.src = target.href;
   }
